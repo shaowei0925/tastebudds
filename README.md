@@ -7,16 +7,6 @@
 *This is a sample online selling platform*
 
 
-
-## <div align="center"> *Learning Points* </div>
-
-<br />
-
-
-
-
-
-
 ## <div align ="center">*Tech Stack* :computer: </div>
 
 <br />

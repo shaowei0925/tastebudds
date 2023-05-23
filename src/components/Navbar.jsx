@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-screen h-[80px] bg-white border py-4 px-12 flex items-center justify-between text-xl">
+    <nav className="relative z-99 w-screen h-[80px] bg-white border py-4 px-12 flex items-center justify-between text-xl">
       <div className="flex items-center justify-center">
         <button>
           <img
@@ -66,7 +66,7 @@ const Navbar = () => {
             )}
           </button>
           {!dropped && (
-            <div className="flex flex-col border rounded-xl px-8 absolute mt-2 bg-orange-50 py-4">
+            <div className="flex flex-col border rounded-xl px-8 absolute mt-2 bg-orange-50 py-4 z-50">
               <a href="#" className="hover:text-black py-2">
                 Shop All
               </a>

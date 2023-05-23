@@ -10,7 +10,7 @@ const CollectionCardLeft = (props) => {
       <div className="col-span-2 py-4 px-24 flex flex-col justify-center gap-8 bg-orange-500 rounded-tr-3xl rounded-br-3xl text-white">
         <h1 className="text-5xl font-bold">{props.title}</h1>
         <p className="text-lg">{props.subtitle}</p>
-        <button className="py-2 px-4 bg-white text-amber-800 rounded-3xl text-white w-1/3 hover:ring-white hover:ring-1">
+        <button className="py-2 px-4 bg-white text-amber-800 rounded-3xl text-orange-600 w-1/3 hover:ring-white hover:ring-1">
           View Collection
         </button>
       </div>

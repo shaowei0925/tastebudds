@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Navbar = () => {
-  const [dropped, setDropped] = useState(false);
+  const [dropped, setDropped] = useState(true);
 
   const drop = () => {
     setDropped((pre) => {

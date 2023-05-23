@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <div>
-      <div className="w-screen border-t grid grid-cols-4 px-24 py-16">
+    <div className="w-screen">
+      <div className="border-t grid grid-cols-4 px-24 py-16">
         <div className="flex flex-col">
           <h3 className="font-bold mb-4 text-xl">Make it Rain!</h3>
           <a href="#" className="py-2 hover:underline">

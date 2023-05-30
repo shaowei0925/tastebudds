@@ -9,10 +9,14 @@ const ProductCard = (props) => {
       </div>
 
       <h1 className="font-bold hover:underline hover:cursor-pointer py-2">
-        The Acquaintance Pack (8meals)
+        {props.name}
       </h1>
-      {props.sale && <h2 className="text-sm line-through">RM 76.00 MYR</h2>}
-      <h2 className="font-semibold ">RM 76.00 MYR</h2>
+      {props.sale && (
+        <h2 className="text-sm line-through">
+          RM {props.oriPrice.toFixed(2)} MYR
+        </h2>
+      )}
+      <h2 className="font-semibold ">RM {props.sellingPrice.toFixed(2)} MYR</h2>
 
       <button className="text-lg border-2 border-amber-800 rounded-3xl px-4 py-2 hover:ring-2 hover:ring-amber-900 mt-8">
         Choose options

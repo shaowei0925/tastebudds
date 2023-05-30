@@ -1,4 +1,12 @@
 const Login = () => {
+  const login = (e) => {
+    const user = {
+      email: e.target.form[0].value,
+      password: e.target.form[1].value,
+    };
+    console.log(user);
+    e.preventDefault();
+  };
   return (
     <div className="flex flex-col justify-center items-center py-8 ">
       <h1 className="font-bold text-5xl mb-12">Login</h1>
@@ -31,7 +39,10 @@ const Login = () => {
           </a>
         </div>
 
-        <button className="w-1/3 my-8 font-mono font-medium text-lg px-8 py-3 bg-orange-600 text-white rounded-3xl hover:ring-orange-400 hover:ring-2">
+        <button
+          onClick={login}
+          className="w-1/3 my-8 font-mono font-medium text-lg px-8 py-3 bg-orange-600 text-white rounded-3xl hover:ring-orange-400 hover:ring-2"
+        >
           Sign In
         </button>
 

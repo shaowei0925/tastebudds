@@ -1,4 +1,14 @@
 const Register = () => {
+  const submit = (e) => {
+    const user = {
+      fname: e.target.form[0].value,
+      lname: e.target.form[1].value,
+      email: e.target.form[2].value,
+      password: e.target.form[3].value,
+    };
+    console.log(user);
+    e.preventDefault();
+  };
   return (
     <div className="flex flex-col justify-center items-center py-8 ">
       <h1 className="font-bold text-5xl mb-12">Create account</h1>
@@ -48,7 +58,11 @@ const Register = () => {
           </label>
         </div>
 
-        <button className="w-1/3 my-8 font-mono font-medium text-lg px-8 py-3 bg-orange-600 text-white rounded-3xl hover:ring-orange-400 hover:ring-2">
+        <button
+          type="submit"
+          onClick={submit}
+          className="w-1/3 my-8 font-mono font-medium text-lg px-8 py-3 bg-orange-600 text-white rounded-3xl hover:ring-orange-400 hover:ring-2"
+        >
           Create
         </button>
       </form>

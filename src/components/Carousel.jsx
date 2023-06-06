@@ -23,32 +23,32 @@ const Carousel = () => {
       title: "The Effortless Tea",
       subtitle: "Enjoy a cuppa anywhere you go, without ANY equipment!",
       btn: "Shop now",
-      img: "src\\assets\\A.jpeg",
+      img: "/A.jpeg",
     },
     {
       title: "Dip, Steep and Stir",
       subtitle:
         "Filter bags created with Japanese tech, giving you even diffusion at your finger tips 🍵",
       btn: "Learn more",
-      img: "src\\assets\\B.jpeg",
+      img: "/B.jpeg",
     },
     {
       title: "Shake and Go",
       subtitle: "Prepare your meal in under 20 seconds!",
       btn: "Shop now",
-      img: "src\\assets\\C.jpeg",
+      img: "/C.jpeg",
     },
     {
       title: "Honey On-The-Go",
       subtitle: "Say goodbye to the sticky mess!",
       btn: "Shop now",
-      img: "src\\assets\\D.jpg",
+      img: "/D.jpg",
     },
     {
       title: "Our Hyper Convenient Boosters",
       subtitle: "Making every meal a healthy one!",
       btn: "Try today",
-      img: "src\\assets\\E.jpg",
+      img: "/E.jpg",
     },
   ];
   const [paused, setPaused] = useState(false);

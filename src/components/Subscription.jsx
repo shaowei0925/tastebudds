@@ -1,6 +1,6 @@
 const Subscription = () => {
   return (
-    <div className="flex flex-col items-center py-8 bg-orange-50">
+    <div className="flex flex-col items-center py-8 bg-orange-50 w-screen">
       <h1 className="font-bold text-5xl">Hey Buddy!</h1>
       <p className="my-8 text-lg px-80 text-center">
         Become a TasteBuddy today and find out more about our new collections

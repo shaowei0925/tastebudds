@@ -4,6 +4,7 @@ import ProductCard from "../components/ProductCard";
 import CollectionCard from "../components/CollectionCard";
 import Carousel from "../components/Carousel";
 import Tastebuddy from "../components/Tastebuddy";
+
 const HomePage = () => {
   return (
     <div className="flex flex-col items-center w-screen">

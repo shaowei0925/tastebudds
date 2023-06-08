@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import CartContext from "../store/cart-context";
 
 export const AddProductCard = (props) => {
   const ctx = useContext(CartContext);
   const quantityRef = useRef();
   const [quantity, setQuantity] = useState(1);
+  const [myEffect, setMyEffect] = useState();
 
   const addToCart = () => {
     ctx.addItem({
@@ -15,13 +16,16 @@ export const AddProductCard = (props) => {
       name: props.name,
       img: props.img,
     });
-    console.log({
-      id: props.id,
-      price: props.price,
-      quantity: quantity,
-      name: props.name,
-    });
+    ctx.toggleProduct();
+    ctx.toggleCart();
   };
+
+  useEffect(() => {
+    setMyEffect("animate-jump");
+    setTimeout(() => {
+      setMyEffect("");
+    }, 1000);
+  }, [quantity]);
 
   const change = () => {
     const val = parseInt(quantityRef.current.value);
@@ -39,7 +43,7 @@ export const AddProductCard = (props) => {
   };
 
   return (
-    <div className="fixed top-[13%] left-[15%] bg-white w-3/5 h-[30rem] rounded-2xl px-12 py-4 z-30 grid grid-cols-3 gap-8 items-center flex justify-center">
+    <div className="animate-jump-in fixed top-[13%] left-[15%] bg-white w-3/5 h-[30rem] rounded-2xl px-12 py-4 z-30 grid grid-cols-3 gap-8 items-center flex justify-center">
       <img src={props.img} alt="img" className="h-3/4 w-fit" />
       <div className="col-span-2 flex flex-col gap-4">
         <h1 className="font-bold text-[2rem]">{props.name}</h1>
@@ -71,7 +75,7 @@ export const AddProductCard = (props) => {
               min={0}
               ref={quantityRef}
               value={quantity}
-              className="w-12 text-center "
+              className={`w-12 text-center ${myEffect} bg-transparent`}
             />
             <button onClick={add}>
               <svg

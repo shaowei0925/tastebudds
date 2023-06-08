@@ -96,6 +96,7 @@ const CartItem = (props) => {
 const Cart = () => {
   const ctx = useContext(CartContext);
   const [myClass, setMyClass] = useState("invisible translate-x-full");
+  const [myEffect, setMyEffect] = useState("");
   const hasItems = ctx.items.length > 0;
 
   const cartAdd = (item) => {
@@ -110,13 +111,20 @@ const Cart = () => {
   };
 
   useEffect(() => {
+    setMyEffect("animate-jump");
+    setTimeout(() => {
+      setMyEffect("");
+    }, 1000);
+  }, [ctx.totalAmount]);
+
+  useEffect(() => {
     ctx.showCart
       ? setMyClass("visible")
       : setMyClass("invisible translate-x-full");
   }, [ctx.showCart]);
 
   const cartItems = (
-    <div className="flex flex-col gap-8 py-8">
+    <div className=" flex flex-col gap-8 py-8">
       {ctx.items.map((item) => {
         return (
           <CartItem
@@ -171,7 +179,7 @@ const Cart = () => {
       <div className="border-t border-black flex flex-col gap-3">
         <div className="flex justify-between items-center text-lg pt-4">
           <h2 className="font-semibold">Subtotal</h2>
-          <h2>RM{ctx.totalAmount.toFixed(2)} MYR</h2>
+          <h2 className={myEffect}>RM{ctx.totalAmount.toFixed(2)} MYR</h2>
         </div>
         <p className="text-sm font-mono">
           Taxes and shipping calculated at checkout

@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../store/cart-context";
+import { useAuth } from "../store/auth-context";
 
 const Navbar = () => {
   const [firstDropped, setFirstDropped] = useState(false);
   const [secondDropped, setSecondDropped] = useState(false);
 
   const ctx = useContext(CartContext);
+  const { isLoggedIn } = useAuth();
 
   const firstDrop = () => {
     setFirstDropped((pre) => {
@@ -175,7 +177,7 @@ const Navbar = () => {
 
         <Link
           to="/faqs"
-          className="text-yellow-900 px-4 hover:underline hover:text-black"
+          className=" text-yellow-900 px-4 hover:underline hover:text-black"
           onClick={() => {
             setFirstDropped(false);
           }}
@@ -213,7 +215,10 @@ const Navbar = () => {
         </button>
 
         {/* Profile button */}
-        <button className="px-2 hover:scale-110 text-yellow-900">
+        <Link
+          to={isLoggedIn ? "/profile" : "/login"}
+          className="px-2 hover:scale-110 text-yellow-900"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -228,7 +233,7 @@ const Navbar = () => {
               d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
             />
           </svg>
-        </button>
+        </Link>
 
         {/* Cart button */}
         <button

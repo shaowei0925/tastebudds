@@ -97,7 +97,6 @@ export const CartContextProvider = (props) => {
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [details, setDetails] = useState({});
   const [cartState, dispatchCart] = useReducer(cartReducer, defaultCartState);
-  console.log(cartState);
 
   const addItemToCart = (item) => {
     dispatchCart({ type: "ADD", item: item });

@@ -14,6 +14,8 @@ import { useContext } from "react";
 import CartContext from "./store/cart-context";
 import Backdrop from "./components/Backdrop";
 import { AddProductCard } from "./components/ProductCard";
+import Alert from "./util/Alert";
+import Profile from "./components/Profile";
 
 function App() {
   const ctx = useContext(CartContext);
@@ -40,6 +42,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/products" element={<ProductsPage />} />

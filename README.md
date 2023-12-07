@@ -1,10 +1,13 @@
 # <div align="center">**Tastebudds** </div>
 
 
-## <div align="center"> *About* </div>
-<br />
-
 *This is a sample online selling platform*
+<p>Original website: <a href="https://tastebudds.shop/" target="_blank">https://tastebudds.shop/</a> </p>
+
+<h1 align="center"> Why I suddenly do this </h1>
+<p>I was planning to make an e-commerce website, all in a sudden, I saw a good old friend shared this website on Facebook, and I think the website's design looks simple and fits my taste (maybe that's why it is called tastebudds) :D </p> 
+
+<p>Credits to: Tastebudds & my good old friend :D</p>
 
 
 ## <div align ="center">*Tech Stack* :computer: </div>
@@ -23,10 +26,7 @@
    
    ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
    
-   ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
-  
-  ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
-</div>
+  </div>
   
  
 

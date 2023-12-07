@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useAuth } from "../store/auth-context";
 import { useNavigate } from "react-router-dom";
 const Profile = () => {
-  const { logout, isLoggedIn } = useAuth();
+  const { logout, isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
     if (!isLoggedIn) {
@@ -41,8 +41,8 @@ const Profile = () => {
         </div>
         <div className="flex flex-col gap-4">
           <h2 className="font-bold text-[2rem]">Account details</h2>
-          <p>Rexx Demo</p>
-          <p>Malaysia</p>
+          <p>{user.name}</p>
+          <p>{user.email}</p>
         </div>
       </div>
     </div>

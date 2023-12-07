@@ -10,19 +10,29 @@ import Terms from "./components/Terms";
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
 import Cart from "./components/Cart";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartContext from "./store/cart-context";
 import Backdrop from "./components/Backdrop";
 import { AddProductCard } from "./components/ProductCard";
-import Alert from "./util/Alert";
 import Profile from "./components/Profile";
+import Search from "./components/Search";
 
 function App() {
   const ctx = useContext(CartContext);
+  const [overflow, setOverflow] = useState("");
+  useEffect(() => {
+    if (!ctx.hideOverflow) {
+      setOverflow("");
+    } else {
+      setOverflow("overflow-hidden");
+    }
+  }, [ctx.hideOverflow]);
+
   return (
     <div
-      className={`relative font-sans text-yellow-900 overflow-x-hidden h-screen w-screen`}
+      className={`${overflow} relative font-sans text-yellow-900 overflow-x-hidden h-screen w-screen`}
     >
+      <Search />
       <Cart />
       {ctx.showCart && <Backdrop isClicked={ctx.toggleCart} />}
       {ctx.showAddProduct && <Backdrop isClicked={ctx.toggleProduct} />}

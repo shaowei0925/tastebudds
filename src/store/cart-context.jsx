@@ -1,7 +1,11 @@
 import React, { useReducer, useState } from "react";
 
 const CartContext = React.createContext({
+  hideOverflow: false,
+  toggleHideOverflow: () => {},
+  showSearch: false,
   showCart: false,
+  toggleSearch: () => {},
   showAddProduct: true,
   toggleCart: () => {},
   toggleProduct: () => {},
@@ -94,6 +98,8 @@ const defaultCartState = {
 
 export const CartContextProvider = (props) => {
   const [showCart, setShowCart] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [hideOverflow, setHideOverflow] = useState(false);
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [details, setDetails] = useState({});
   const [cartState, dispatchCart] = useReducer(cartReducer, defaultCartState);
@@ -116,11 +122,23 @@ export const CartContextProvider = (props) => {
     });
   };
 
+  const toggleSearch = () => {
+    setShowSearch((pre) => {
+      return !pre;
+    });
+  };
+
   const toggleProduct = (name, price, img, id) => {
     setShowAddProduct((pre) => {
       return !pre;
     });
     setDetails({ name: name, price: price, img: img, id: id });
+  };
+
+  const toggleHideOverflow = () => {
+    setHideOverflow((pre) => {
+      return !pre;
+    });
   };
 
   const cartContext = {
@@ -134,6 +152,10 @@ export const CartContextProvider = (props) => {
     addItem: addItemToCart,
     removeItem: removeItemFromCart,
     deleteItem: deleteItemFromCart,
+    showSearch: showSearch,
+    toggleSearch: toggleSearch,
+    hideOverflow: hideOverflow,
+    toggleHideOverflow: toggleHideOverflow,
   };
 
   return (

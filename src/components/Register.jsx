@@ -1,18 +1,53 @@
+import { useEffect } from "react";
+import { useAuth } from "../store/auth-context";
+import { useNavigate } from "react-router-dom";
+
 const Register = () => {
-  const submit = (e) => {
-    const user = {
-      fname: e.target.form[0].value,
-      lname: e.target.form[1].value,
-      email: e.target.form[2].value,
-      password: e.target.form[3].value,
-    };
-    console.log(user);
+  const { signup, isSignedUp, error } = useAuth();
+  const navigate = useNavigate();
+  const submit = async (e) => {
+    console.log(e.target[0].value);
     e.preventDefault();
+    const user = {
+      name: e.target[0].value.trim() + " " + e.target[1].value.trim(),
+      email: e.target[2].value,
+      password: e.target[3].value,
+    };
+
+    signup(user);
   };
+  useEffect(() => {
+    if (isSignedUp) {
+      navigate("/login");
+    } else {
+      navigate("/register");
+    }
+  }, [isSignedUp]);
   return (
     <div className="flex flex-col justify-center items-center py-8 ">
+      {error.status && (
+        <div
+          id="alert-border-2"
+          className="flex items-center p-4 px-8 mb-4 text-red-800 border-t-4 border-red-300 bg-red-100 "
+          role="alert"
+        >
+          <svg
+            className="flex-shrink-0 w-4 h-4"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          </svg>
+          <div className="ms-3 text-sm font-medium">{error.text}</div>
+        </div>
+      )}
       <h1 className="font-bold text-5xl mb-12">Create account</h1>
-      <form className="w-5/12 flex flex-col justify-center items-center">
+      <form
+        className="w-5/12 flex flex-col justify-center items-center"
+        onSubmit={submit}
+      >
         <div className="relative px-8 w-full mb-6 border border-yellow-900 rounded-full py-2 group hover:ring-1 hover:ring-yellow-900">
           <input
             type="text"
@@ -60,7 +95,6 @@ const Register = () => {
 
         <button
           type="submit"
-          onClick={submit}
           className="w-1/3 my-8 font-mono font-medium text-lg px-8 py-3 bg-orange-400 text-white rounded-full hover:ring-orange-400 hover:ring-2"
         >
           Create

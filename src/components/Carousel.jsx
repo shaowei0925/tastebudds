@@ -53,6 +53,7 @@ const Carousel = () => {
   ];
   const [paused, setPaused] = useState(false);
   const [curIndex, setCurIndex] = useState(0);
+  const [myClass, setMyClass] = useState("");
   const pause = () => {
     setPaused((pre) => {
       return !pre;
@@ -60,39 +61,41 @@ const Carousel = () => {
   };
 
   // TODO : auto-slider
-  // let slides;
+  let slides = null;
 
-  // const startInterval = () => {
-  //   slides = setInterval(() => {
-  //     nextSlide();
-  //   }, 1000);
-  // };
-
-  // const resetInterval = () => {
-  //   clearInterval(slides);
-  //   startInterval();
-  // };
-
-  // useEffect(() => {
-  //   if (paused) {
-  //     clearInterval(slides);
-  //   }
-  // }, [paused]);
+  useEffect(() => {
+    if (paused) {
+      slides = setInterval(() => {
+        nextSlide();
+      }, 1000);
+    }
+    return () => {
+      clearInterval(slides);
+    };
+  }, [paused]);
 
   const preSlide = () => {
-    let isFirst = curIndex === 0;
-    let newInd = isFirst ? data.length - 1 : curIndex - 1;
-    setCurIndex(newInd);
+    setCurIndex((pre) => {
+      if (pre == 0) {
+        return data.length - 1;
+      } else {
+        return pre - 1;
+      }
+    });
   };
   const nextSlide = () => {
-    let isLast = curIndex === data.length - 1;
-    let newInd = isLast ? 0 : curIndex + 1;
-    setCurIndex(newInd);
+    setCurIndex((pre) => {
+      if (pre == data.length - 1) {
+        return 0;
+      }
+      return pre + 1;
+    });
   };
+
   return (
     <div>
       <div className="relative h-auto overflow-hidden rounded-lg">
-        <div className="duration-500 ease-in-out">
+        <div className={`${myClass}`}>
           <CarouselCard
             title={data[curIndex].title}
             subtitle={data[curIndex].subtitle}
@@ -138,7 +141,7 @@ const Carousel = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-6 h-6"
+                  className="w-6 h-6  "
                 >
                   <path
                     fillRule="evenodd"

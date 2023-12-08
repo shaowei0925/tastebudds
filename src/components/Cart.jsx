@@ -145,7 +145,7 @@ const Cart = () => {
 
   return (
     <div
-      className={`fixed right-0 z-20 bg-white h-screen overflow-y-auto overflow-x-hidden w-2/5 px-4 py-4 pb-12 ease-in-out duration-500 ${myClass}`}
+      className={`fixed right-0 z-20 bg-white h-screen overflow-y-auto overflow-x-hidden w-2/3 lg:w-2/5 px-4 py-4 pb-12 ease-in-out duration-500 ${myClass}`}
     >
       <div className="flex justify-between items-center">
         <h1 className="font-bold text-3xl">Your cart</h1>

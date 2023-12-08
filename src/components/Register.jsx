@@ -43,9 +43,9 @@ const Register = () => {
           <div className="ms-3 text-sm font-medium">{error.text}</div>
         </div>
       )}
-      <h1 className="font-bold text-5xl mb-12">Create account</h1>
+      <h1 className="font-bold md:text-5xl mb-12 text-3xl">Create account</h1>
       <form
-        className="w-5/12 flex flex-col justify-center items-center"
+        className="w-1/2 md:w-5/12 flex flex-col justify-center items-center"
         onSubmit={submit}
       >
         <div className="relative px-8 w-full mb-6 border border-yellow-900 rounded-full py-2 group hover:ring-1 hover:ring-yellow-900">
@@ -95,7 +95,7 @@ const Register = () => {
 
         <button
           type="submit"
-          className="w-1/3 my-8 font-mono font-medium text-lg px-8 py-3 bg-orange-400 text-white rounded-full hover:ring-orange-400 hover:ring-2"
+          className="w-1/2 md:w-1/3 my-8 font-mono font-medium text-lg px-8 py-3 bg-orange-400 text-white rounded-full hover:ring-orange-400 hover:ring-2"
         >
           Create
         </button>

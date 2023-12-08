@@ -62,7 +62,7 @@ const Login = () => {
       )}
       <h1 className="font-bold text-5xl mb-12">Login</h1>
       <form
-        className="w-1/3 flex flex-col justify-center items-center"
+        className="w-1/2 md:w-1/3 flex flex-col justify-center items-center"
         onSubmit={onLogin}
       >
         <div className="flex justify-between items-center px-8 relative w-full mb-6 border border-yellow-900 rounded-full py-2 group hover:ring-1 hover:ring-yellow-900">

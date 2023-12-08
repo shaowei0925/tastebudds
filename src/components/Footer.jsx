@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="w-screen">
-      <div className="border-t grid grid-cols-4 px-24 py-16">
+      <div className="border-t grid md:grid-cols-4 px-12 md:px-24 py-16 gap-6">
         {/* First Column */}
         <div className="flex flex-col">
           <h3 className="font-bold mb-4 text-xl">Make it Rain!</h3>

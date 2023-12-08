@@ -17,7 +17,7 @@ const Strengths = () => {
   ];
 
   return (
-    <div className="grid grid-cols-3 bg-amber-50 py-8 px-32 gap-4 w-screen">
+    <div className="grid md:grid-cols-3 bg-amber-50 py-8 px-32 gap-4 w-screen text-center md:text-start">
       {list.map((strength, index) => {
         return (
           <div key={index} className="py-2">

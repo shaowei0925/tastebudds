@@ -265,7 +265,7 @@ const Navbar = () => {
             }}
           >
             <img
-              className="h-[25px] lg:h-[35px] min-w-fit lg:mr-4"
+              className="h-[15px] md:h-[35px] min-w-fit lg:mr-4"
               src="/logo.png"
               alt="logo"
             />
@@ -447,7 +447,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-3 h-3 md:w-6 md:h-6"
             >
               <path
                 strokeLinecap="round"
@@ -468,7 +468,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-3 h-3 md:w-6 md:h-6"
             >
               <path
                 strokeLinecap="round"
@@ -492,7 +492,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-3 h-3 md:w-6 md:h-6"
             >
               <path
                 strokeLinecap="round"

@@ -25,8 +25,10 @@ app.use(
 
 const RegisterRoute = require("./routes/register");
 const LoginRoute = require("./routes/login");
+const OrderRoute = require("./routes/order");
 app.use("/register", RegisterRoute);
 app.use("/login", LoginRoute);
+app.use("/order", OrderRoute);
 
 app.listen(3000, () => {
   console.log("Listening on port 3000...");

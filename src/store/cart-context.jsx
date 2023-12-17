@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from "react";
 
 const CartContext = React.createContext({
+  cartState: [],
   hideOverflow: false,
   toggleHideOverflow: () => {},
   showSearch: false,
@@ -142,6 +143,7 @@ export const CartContextProvider = (props) => {
   };
 
   const cartContext = {
+    cartState: cartState,
     showCart: showCart,
     toggleCart: toggleCart,
     details: details,

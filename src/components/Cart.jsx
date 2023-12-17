@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useRef, useState, useContext, useEffect } from "react";
 import CartContext from "../store/cart-context";
+import { useAuth } from "../store/auth-context";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const CartItem = (props) => {
   const quantityRef = useRef();
   const [quantity, setQuantity] = useState(props.quantity);
-  console.log(quantity, "CartItem");
 
   useEffect(() => {
     setQuantity(props.quantity);
@@ -94,11 +96,11 @@ const CartItem = (props) => {
 };
 
 const Cart = () => {
+  const { user } = useAuth();
   const ctx = useContext(CartContext);
   const [myClass, setMyClass] = useState("invisible translate-x-full");
   const [myEffect, setMyEffect] = useState("");
   const hasItems = ctx.items.length > 0;
-
   const cartAdd = (item) => {
     ctx.addItem({ ...item, quantity: 1 });
   };
@@ -122,6 +124,18 @@ const Cart = () => {
       ? setMyClass("visible")
       : setMyClass("invisible translate-x-full");
   }, [ctx.showCart]);
+
+  const handleCheckout = async (e) => {
+    try {
+      await axios.post("http://localhost:3000/order", {
+        user_id: user._id,
+        items: ctx.cartState.items,
+        totalAmount: ctx.cartState.totalAmount,
+      });
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   const cartItems = (
     <div className=" flex flex-col gap-8 py-8">
@@ -172,9 +186,16 @@ const Cart = () => {
       </div>
       {hasItems && cartItems}
       {!hasItems && (
-        <h1 className="font-semibold text-[2rem] font-mono text-center py-12">
-          Your cart is empty
-        </h1>
+        <div className="font-medium text-[1.3rem] font-mono text-center py-12">
+          <h1>Your cart is empty</h1>
+          <Link
+            to="/products"
+            className="text-[1rem] underline"
+            onClick={ctx.toggleCart}
+          >
+            Continue Shopping
+          </Link>
+        </div>
       )}
       <div className="border-t border-black flex flex-col gap-3">
         <div className="flex justify-between items-center text-lg pt-4">
@@ -184,7 +205,10 @@ const Cart = () => {
         <p className="text-sm font-mono">
           Taxes and shipping calculated at checkout
         </p>
-        <button className="py-3 px-8 bg-amber-600 text-white rounded-3xl hover:ring-amber-600 hover:ring-2">
+        <button
+          className="py-3 px-8 bg-amber-600 text-white rounded-3xl hover:ring-amber-600 hover:ring-2"
+          onClick={handleCheckout}
+        >
           Check out
         </button>
       </div>

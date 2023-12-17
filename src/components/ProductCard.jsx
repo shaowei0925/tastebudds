@@ -135,10 +135,10 @@ const ProductCard = (props) => {
 
   return (
     <div>
-      <div className=" min-w-[250px] max-w-[250px] min-h-[460px] max-h-[460px] p-4 border border-black rounded-2xl flex flex-col justify-between hover:cursor-pointer">
+      <div className=" min-w-[250px] max-w-[250px] min-h-[460px] max-h-[460px] p-4 border border-black rounded-2xl hover:cursor-pointer flex flex-col justify-around">
         <div
           className={
-            " group bg-cover relative h-60 w-50 bg-cover  hover:ease-in-out hover:duration-500 hover:cursor-pointer flex justify-center"
+            " group bg-cover relative h-60 w-50  hover:ease-in-out hover:duration-500 hover:cursor-pointer flex justify-center"
           }
         >
           <img
@@ -174,7 +174,7 @@ const ProductCard = (props) => {
           onClick={() => {
             handleClick(props.name, props.sellingPrice, props.bg1, props.id);
           }}
-          className="text-lg border-2 border-amber-800 rounded-3xl px-4 py-2 hover:ring-2 hover:ring-amber-900 mt-8"
+          className="text-lg border-2 border-amber-800 rounded-3xl px-4 py-2 hover:ring-2 hover:ring-amber-900"
         >
           Choose options
         </button>

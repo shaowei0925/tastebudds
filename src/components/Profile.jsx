@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAuth } from "../store/auth-context";
 import { useNavigate } from "react-router-dom";
+import OrderHistory from "./OrderHistory";
 const Profile = () => {
   const { logout, isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Profile = () => {
       <div className="flex justify-between py-12">
         <div className="flex flex-col gap-4">
           <h2 className="font-bold text-[2rem]">Order history</h2>
-          <p>You haven't placed any orders yet</p>
+          <OrderHistory />
         </div>
         <div className="flex flex-col gap-4">
           <h2 className="font-bold text-[2rem]">Account details</h2>

@@ -1,51 +1,5 @@
 import ProductCard from "../components/ProductCard";
-const list = [
-  {
-    id: "i1",
-    sale: true,
-    name: "The Acquaintance Pack (8meals)",
-    oriPrice: 76,
-    sellingPrice: 50,
-    bg1: "/med1.png",
-    bg2: "/med1.1.png",
-  },
-  {
-    id: "i2",
-    sale: true,
-    name: "The Friend Pack (12meals)",
-    oriPrice: 118.8,
-    sellingPrice: 110.4,
-    bg1: "/med2.png",
-    bg2: "/med2.1.png",
-  },
-  {
-    id: "i3",
-    sale: false,
-    name: "The Stranger Pack (4meals)",
-    oriPrice: 39.6,
-    sellingPrice: 39.6,
-    bg1: "/med3.png",
-    bg2: "/med3.1.png",
-  },
-  {
-    id: "i4",
-    sale: true,
-    name: "The Buddy Pack (16meals)",
-    oriPrice: 158.4,
-    sellingPrice: 142.4,
-    bg1: "/med4.png",
-    bg2: "/med4.1.png",
-  },
-  {
-    id: "i5",
-    sale: true,
-    name: "Tastebudds Family Pack(Save 10%)",
-    oriPrice: 328,
-    sellingPrice: 296,
-    bg1: "/med5.png",
-    bg2: "/med5.1.png",
-  },
-];
+import list from "./productList";
 const ProductsPage = () => {
   return (
     <div className="px-12 py-8">

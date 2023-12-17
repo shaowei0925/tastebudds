@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <div className="flex flex-col items-center w-screen">
       <Carousel />
-      <div className="flex gap-2 p-8 justify-evenly w-11/12  overflow-x-auto scrollbar-thin scrollbar-thumb-yellow-600 scrollbar-track-gray-100">
+      <div className="flex gap-4 p-8 justify-start w-11/12  overflow-x-auto scrollbar-thin scrollbar-thumb-yellow-600 scrollbar-track-gray-100">
         {list.map((product) => {
           return (
             <ProductCard

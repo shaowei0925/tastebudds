@@ -128,7 +128,6 @@ export const AddProductCard = (props) => {
 
 const ProductCard = (props) => {
   const ctx = useContext(CartContext);
-
   const handleClick = (name, price, img, id) => {
     ctx.toggleProduct(name, price, img, id);
   };
@@ -151,9 +150,9 @@ const ProductCard = (props) => {
             alt="image"
             className="invisible absolute h-60 w-50 group-hover:visible group-hover:duration-500 transition group-hover:ease-in-out"
           />
-          {props.sale && (
-            <p className="absolute bg-orange-400 px-8 py-0.5 text-white left-2 top-3">
-              Sale
+          {props.discount !== 0 && (
+            <p className="absolute bg-orange-500 px-8 py-0.5 text-white left-2 top-3">
+              -{props.discount * 100}%
             </p>
           )}
         </div>
@@ -161,18 +160,23 @@ const ProductCard = (props) => {
         <h1 className="font-bold hover:underline hover:cursor-pointer py-2 group-hover:underline group">
           {props.name}
         </h1>
-        {props.sale && (
+        {props.discount !== 0 && (
           <h2 className="text-sm line-through">
-            RM {props.oriPrice.toFixed(2)} MYR
+            RM {props.price.toFixed(2)} MYR
           </h2>
         )}
         <h2 className="font-semibold ">
-          RM {props.sellingPrice.toFixed(2)} MYR
+          RM {(props.price * (1 - props.discount)).toFixed(2)} MYR
         </h2>
 
         <button
           onClick={() => {
-            handleClick(props.name, props.sellingPrice, props.bg1, props.id);
+            handleClick(
+              props.name,
+              props.price * (1 - props.discount),
+              props.bg1,
+              props.id
+            );
           }}
           className="text-lg border-2 border-amber-800 rounded-3xl px-4 py-2 hover:ring-2 hover:ring-amber-900"
         >

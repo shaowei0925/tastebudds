@@ -70,11 +70,10 @@ const ProductsPage = () => {
             <ProductCard
               key={product.id}
               id={product.id}
-              sale={product.sale}
+              discount={product.discount}
               bg1={product.bg1}
               bg2={product.bg2}
-              oriPrice={product.oriPrice}
-              sellingPrice={product.sellingPrice}
+              price={product.price}
               name={product.name}
             />
           );

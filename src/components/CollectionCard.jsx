@@ -20,7 +20,7 @@ const CollectionCardLeft = (props) => {
 const CollectionCardRight = (props) => {
   return (
     <div className="grid grid-cols-3 h-fit">
-      <div className="col-span-2 py-4 px-24 flex flex-col justify-center gap-8">
+      <div className="col-span-2 py-4 px-24 flex flex-col justify-center gap-8 bg-red-50 rounded-tl-3xl rounded-bl-3xl">
         <h1 className="text-[2rem] font-bold">{props.title}</h1>
         <p className="text-[1rem]">{props.subtitle}</p>
         <button className="py-2 px-6 bg-orange-400 rounded-3xl text-white w-fit hover:ring-orange-600 hover:ring-1 text-[1rem]">

@@ -1,4 +1,19 @@
+import axios from "axios";
+
 const Subscription = () => {
+  const handleSubscribe = async (e) => {
+    try {
+      const email = e.target[0].value;
+
+      await axios.post("http://localhost:3000/subscribe", {
+        email: email,
+      });
+
+      e.preventDefault();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
   return (
     <div className="flex flex-col items-center py-8 bg-orange-50 w-screen">
       <h1 className="font-bold text-5xl">Hey Buddy!</h1>
@@ -6,7 +21,7 @@ const Subscription = () => {
         Become a TasteBuddy today and find out more about our new collections
         and exclusive offers.
       </p>
-      <form className="w-1/3">
+      <form className="w-1/3" onSubmit={handleSubscribe}>
         <div className="flex justify-between items-center px-4 relative w-full mb-6 border border-yellow-900 rounded-3xl py-2 group hover:ring-1 hover:ring-yellow-900">
           <input
             type="email"
@@ -22,7 +37,7 @@ const Subscription = () => {
           >
             Email
           </label>
-          <button>
+          <button type={"submit"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

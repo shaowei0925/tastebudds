@@ -132,6 +132,9 @@ const Cart = () => {
         items: ctx.cartState.items,
         totalAmount: ctx.cartState.totalAmount,
       });
+      ctx.resetCart();
+      ctx.toggleCart();
+      alert("Order placed");
     } catch (err) {
       console.log(err.message);
     }

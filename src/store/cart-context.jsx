@@ -16,6 +16,7 @@ const CartContext = React.createContext({
   addItem: () => {},
   removeItem: () => {},
   deleteItem: () => {},
+  resetCart: () => {},
 });
 
 const cartReducer = (state, action) => {
@@ -89,6 +90,10 @@ const cartReducer = (state, action) => {
     };
   }
 
+  if (action.type === "RESET") {
+    return defaultCartState;
+  }
+
   return defaultCartState;
 };
 
@@ -115,6 +120,10 @@ export const CartContextProvider = (props) => {
 
   const deleteItemFromCart = (id) => {
     dispatchCart({ type: "DELETE", id: id });
+  };
+
+  const resetCart = () => {
+    dispatchCart({ type: "RESET" });
   };
 
   const toggleCart = () => {
@@ -154,6 +163,7 @@ export const CartContextProvider = (props) => {
     addItem: addItemToCart,
     removeItem: removeItemFromCart,
     deleteItem: deleteItemFromCart,
+    resetCart: resetCart,
     showSearch: showSearch,
     toggleSearch: toggleSearch,
     hideOverflow: hideOverflow,
